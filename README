@@ -1,0 +1,5 @@
+Hi,
+
+To run the project you must write "python manage.py runserver" on the command-line, and the link to the homepage is : http://127.0.0.1:8000/myapp/
+
+It should have been '' for the Homepage but I had a problem so it's 'myapp/' for the homepage and therefore 'myapp/add/' for the page added an element

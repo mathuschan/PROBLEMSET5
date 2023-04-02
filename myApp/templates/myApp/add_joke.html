@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page d'entrée</title>
+</head>
+<body>
+<h1>Page d'entrée</h1>
+<form method="POST" action="{% url 'myApp:add_joke' %}">
+  {% csrf_token %}
+  <label for="element">Entrer un élément:</label>
+  <input type="text" id="element" name="element">
+
+  <label for="person">Choisir une personne :</label>
+  <select id="person" name="person">
+    {% for person in persons %}
+    <option value="{{ person.id }}">{{ person.name }}</option>
+    {% endfor %}
+  </select>
+
+
+  <button type="submit">Soumettre</button>
+</form>
+<script>
+  // Rafraîchir la page après soumission du formulaire
+  document.querySelector('form').addEventListener('submit', function() {
+    location.reload();
+  });
+</script>
+</body>
+</html>
+

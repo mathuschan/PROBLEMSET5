@@ -1,0 +1,66 @@
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page de sortie</title>
+</head>
+<body>
+<h1>Page de Blague</h1>
+<p>Ajouter une blague :</p>
+<button onclick="window.location.href='http://127.0.0.1:8000/myapp/add/'">Cliquez ici</button>
+<br><br>
+<form method="POST" action="{% url 'myApp:delete_all' %}">
+    {% csrf_token %}
+    <button type="submit">Supprimer tous les éléments</button>
+</form>
+
+{% if elements %}
+<p>Les blagues ajoutées sont :</p>
+<ul>
+    {% for element in elements %}
+    {% if element.is_last_added %}
+    <li><strong>{{ element.id }} ->{{ element.username|upper }} -> {{ element.value }}</strong></li>
+    {% else %}
+    <li>{{ element.id }} ->{{ element.username|upper }} -> {{ element.value }}</li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% else %}
+<p>Aucune blague n'a été ajoutée</p>
+{% endif %}
+
+
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page de sortie</title>
+</head>
+<body>
+<h1>Page de citation</h1>
+<p>Ajouter une citation :</p>
+<button onclick="window.location.href='http://127.0.0.1:8000/myapp/add/'">Cliquez ici</button>
+<br><br>
+
+{% if quotes %}
+<p>Les citations ajoutées sont :</p>
+<ul>
+    {% for quote in quotes %}
+    <li>{{ quote.text }} -> {{ quote.person }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Aucune blague n'a été ajoutée</p>
+{% endif %}
+
+
+<form method="POST" action="{% url 'myApp:delete_all' %}">
+    {% csrf_token %}
+    <button type="submit">Supprimer tous les éléments</button>
+</form>
+
+</body>
+</html>
+
